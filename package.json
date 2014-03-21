@@ -1,0 +1,22 @@
+{
+  "name": "xm-el",
+  "version": "0.1.0",
+  "description": "Simple xml creation using d3.js-inspired syntax",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jshanley/xm-el.git"
+  },
+  "keywords": [
+    "xml"
+  ],
+  "author": "John Shanley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jshanley/xm-el/issues"
+  },
+  "homepage": "https://github.com/jshanley/xm-el"
+}
