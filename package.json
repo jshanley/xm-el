@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/jshanley/xm-el/issues"
   },
-  "homepage": "https://github.com/jshanley/xm-el"
+  "homepage": "https://github.com/jshanley/xm-el",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-nodeunit": "^0.3.3"
+  }
 }
