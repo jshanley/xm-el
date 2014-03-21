@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="yes"?>
+<band name="The Beatles">
+  <member instrument="guitar">John Lennon</member>
+  <member instrument="bass">Paul McCartney</member>
+  <member instrument="guitar">George Harrison</member>
+  <member instrument="drums">Ringo Starr</member>
+  <manager>Brian Epstein</manager>
+</band>
