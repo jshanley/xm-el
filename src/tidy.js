@@ -34,5 +34,3 @@ function tidy(element, indent, current_level) {
     return start + middle + end;
   }
 }
-
-module.exports = tidy;

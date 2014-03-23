@@ -1,5 +1,3 @@
-var tidy = require('./tidy');
-
 function Element(tagName, selfClosing) {
 	this.tagName = tagName;
 	this.selfClosing = selfClosing || false;
@@ -16,7 +14,7 @@ Element.prototype.text = function(value) {
 		this._value = value.toString();
 		return this;
 	}
-}
+};
 
 Element.prototype.append = function(item, selfClosing) {
 	var elem;
@@ -66,6 +64,6 @@ Element.prototype.stringify = function(indent) {
 	return output;
 };
 
-module.exports = function(tag, sc) {
+xml.element = function(tag, sc) {
 	return new Element(tag, sc);
 };

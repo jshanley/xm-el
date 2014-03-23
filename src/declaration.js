@@ -1,4 +1,4 @@
-function declaration(options, inline) {
+xml.declaration = function(options, inline) {
 	options = options || {};
 	var version = options.version || '1.0';
 	var output = '<?xml version="' + version + '"';
@@ -16,6 +16,4 @@ function declaration(options, inline) {
 	} else {
 		return output;
 	}
-}
-
-module.exports = declaration;
+};

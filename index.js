@@ -1,5 +1,1 @@
-module.exports = {
-	element: require('./lib/element'),
-	declaration: require('./lib/declaration'),
-	doctype: require('./lib/doctype')
-};
+module.exports = require('./xm-el');
