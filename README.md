@@ -13,17 +13,25 @@ examples will reference the library as variable 'xml':
 var xml = require('xm-el');
 ```
 ### Create Elements:
-Normal
+Create basic elements with `xml.element(<tagname>)`
 ```javascript
-// create elements with xml.element(<tagname>)
-var el = xml.element('author');
-// add attributes with Element.attr(<name>, <value>)
-el.attr('name', 'Jack Kerouac');
-// get the markup you've made using Element.stringify()
-var markup = el.stringify();
-// markup === '<author name="Jack Kerouac"></author>'
+var kerouac = xml.element('author');
 ```
-Self-closing
+Add a text node with `.text()`
+```javascript
+kerouac.text('Jack Kerouac');
+```
+Add attributes with `.attr(<name>, <value>)`
+```javascript
+kerouac.attr('literary-movement', 'Beat');
+```
+
+Get the markup as a string using `.stringify()`
+```javascript
+kerouac.stringify();
+// '<author literary-movement="Beat">Jack Kerouac</author>'
+```
+Create self-closing elements with `xml.element(<tagname>, true)`
 ```javascript
 // create a self-closing element, set 2nd argument to 'true'
 var pagebreak = xml.element('br', true);
@@ -44,7 +52,7 @@ xml.element('composer')
 ```
 
 ### Child Elements:
-Create child elements using `Element.append(<tagname>)`:
+Create child elements using `.append(<tagname>)`
 ```javascript
 // some familiar names
 var members = {
