@@ -2,7 +2,7 @@
 
 var xml = {};
 
-function declaration(options, inline) {
+xml.declaration = function(options, inline) {
 	options = options || {};
 	var version = options.version || '1.0';
 	var output = '<?xml version="' + version + '"';
@@ -20,9 +20,7 @@ function declaration(options, inline) {
 	} else {
 		return output;
 	}
-}
-
-xml.declaration = declaration;
+};
 var doctypes = {
   'html5':               '<!DOCTYPE html>',
   'html4-strict':        '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">',
@@ -48,7 +46,7 @@ var doctypes = {
 
   'plist':               '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'
 };
-function doctype(dt, inline) {
+xml.doctype = function(dt, inline) {
 	// set up some shortcuts
 	switch (dt) {
 	case 'html':
@@ -81,9 +79,7 @@ function doctype(dt, inline) {
 	} else {
 		return output;
 	}
-}
-
-xml.doctype = doctype;
+};
 
 function Element(tagName, selfClosing) {
 	this.tagName = tagName;
@@ -119,7 +115,19 @@ Element.prototype.attr = function(name, value) {
 	if (arguments.length === 0) {
 		throw new Error('cannot call "Element.attr()" without arguments');
 	} else if (arguments.length === 1) {
-		return this.attributes[name];
+		if (typeof name === 'string') {
+			// if given a string, return the value for that attribute
+			return this.attributes[name];
+		} else if (typeof name === 'object') {
+			// if given an object, loop through to assign all attrs
+			for (var key in name) {
+				this.attributes[key] = name[key];
+			}
+			return this;
+		} else {
+			// throw an error on any other type of input
+			throw new TypeError('Element.attr() must be called with a String or Object as the first argument.');
+		}
 	} else {
 		this.attributes[name] = value;
 		return this;
