@@ -39,6 +39,16 @@ pagebreak.stringify();
 // '<br />'
 ```
 
+Multiple attributes can be assigned in a single call by passing a plain object to `Element.attr()`
+```javascript
+var svg = xml.element('svg')
+  .attr({
+    'width': 400,
+    'height': 300,
+    'viewBox': '0 0 400 300',
+    'preserveAspectRatio': 'xMidYMid meet'
+  });
+```
 ### Chaining:
 Creating an element or setting an attribute returns the element, which allows you to chain methods together:
 
