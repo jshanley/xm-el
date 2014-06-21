@@ -32,7 +32,19 @@ Element.prototype.attr = function(name, value) {
 	if (arguments.length === 0) {
 		throw new Error('cannot call "Element.attr()" without arguments');
 	} else if (arguments.length === 1) {
-		return this.attributes[name];
+		if (typeof name === 'string') {
+			// if given a string, return the value for that attribute
+			return this.attributes[name];
+		} else if (typeof name === 'object') {
+			// if given an object, loop through to assign all attrs
+			for (var key in name) {
+				this.attributes[key] = name[key];
+			}
+			return this;
+		} else {
+			// throw an error on any other type of input
+			throw new TypeError('Element.attr() must be called with a String or Object as the first argument.');
+		}
 	} else {
 		this.attributes[name] = value;
 		return this;
